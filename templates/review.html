@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -10,14 +11,22 @@
   <h1>{{movie.title}}</h1>
   <form>
     <label for="rating">Rating:</label>
-    <input type="range" name="rating" min="0" max="5" />
+    <input type="range" name="rating" id="rating" min="1" max="5" list="ratings" />
+    <datalist id="ratings">
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      <option value="4"></option>
+      <option value="5"></option>
+    </datalist>
+
     <br />
     <br />
     <label for="review">Review:</label>
-    <textarea name="review"></textarea>
+    <textarea name="review" id="review"></textarea>
     <br />
     <br />
-    <button type="submit" hx-post="/movies/{{movie.id}}/review">Submit</button>
+    <button type="submit" hx-post="/movies/{{movie.url}}/review">Submit</button>
   </form>
 </div>
 

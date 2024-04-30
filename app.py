@@ -20,25 +20,25 @@ def increment():
     return session["count"].__str__()
 
 
-@app.route("/movies")
+@app.route("/movies/watchlist")
 def movies():
     session["movies"] = [
-    {"id": 1, "title": "The Shawshank Redemption", "year": 1994, "length": 142, "rating": 4},
-    {"id": 2, "title": "The Godfather", "year": 1972, "length": 175, "rating": 5},
-    {"id": 3, "title": "The Dark Knight", "year": 2008, "length": 152, "rating": 4},
-    {"id": 4, "title": "The Godfather Part II", "year": 1974, "length": 202, "rating": 5},
+    {"id": 1, "title": "The Shawshank Redemption", "year": 1994, "length": 142, "url": "the-shawshank-redemption"},
+    {"id": 2, "title": "The Godfather", "year": 1972, "length": 175, "url": "the-godfather"},
+    {"id": 3, "title": "The Dark Knight", "year": 2008, "length": 152, "url": "the-dark-knight"},
+    {"id": 4, "title": "The Godfather: Part II", "year": 1974, "length": 202, "url": "the-godfather-part-ii"},
     ]
     movies =session.get("movies", [])
-    return render_template("movies.html", movies=movies)
+    return render_template("watchlist.html", movies=movies)
 
-@app.route("/movies/<int:movie_id>/review")
-def review(movie_id):
+@app.route("/movies/<string:movie_url>/review")
+def review(movie_url):
     movies = session.get("movies", [])
-    movie = [movie for movie in movies if movie["id"] == movie_id][0]
+    movie = [movie for movie in movies if movie["url"] == movie_url][0]
 
     return render_template("review.html", movie=movie)
 
-@app.route("/movies/<int:movie_id>/review", methods=["POST"])
+@app.route("/movies/<string:movie_url>/review", methods=["POST"])
 def save_review(movie_id):
     print("RATING", request.form["rating"])
     print("REVIEW", request.form["review"])

@@ -1,4 +1,4 @@
-<h1> WATCHLIST</h1>
+<h1>WATCHLIST</h1>
 <table>
   <tr>
     <th>Title</th>
@@ -8,11 +8,11 @@
   </tr>
   {% for movie in movies %}
   <tr>
-    <td><a href="https://letterboxd.com/film/{{ movie.title.replace(' ', '-').lower() }}"> {{ movie.title }}</a></td>
+    <td><a href="https://letterboxd.com/film/{{ movie.url }}"> {{ movie.title }}</a></td>
     <td>{{ movie.year }}</td>
     <td>{{ movie.length }}</td>
     <td>
-      <a href="/movies/{{ movie.id }}/review">Review</a>
+      <a href="/movies/{{ movie.url }}/review">Review</a>
       <a href="/movies/{{ movie.id }}/delete">Delete</a>
     </td>
   </tr>

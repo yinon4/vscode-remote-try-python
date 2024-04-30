@@ -1,0 +1,25 @@
+<h1>WATCHED</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Rating</th>
+    <th>Review</th>
+    <th>Actions</th>
+  </tr>
+  {% for movie in movies %}
+  {% for review in movie.reviews %}
+  <tr>
+    <td><a href="https://letterboxd.com/film/{{ movie.url }}"> {{ movie.title }}</a></td>
+    <td>{{ review["rating"] }}</td>
+    <td>{{ review["review"] }}</td>
+    <td>
+      <a href="/movies/{{ movie.url }}/review">Review</a>
+      <a href="/movies/{{ movie.id }}/delete">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+  {% endfor %}
+</table>
+<script>
+
+</script>

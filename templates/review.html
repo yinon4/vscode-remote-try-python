@@ -1,0 +1,24 @@
+<html>
+
+<head>
+  <title>{{movie.title}}</title>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+
+
+<div>
+  <h1>{{movie.title}}</h1>
+  <form>
+    <label for="rating">Rating:</label>
+    <input type="range" name="rating" min="0" max="5" />
+    <br />
+    <br />
+    <label for="review">Review:</label>
+    <textarea name="review"></textarea>
+    <br />
+    <br />
+    <button type="submit" hx-post="/movies/{{movie.id}}/review">Submit</button>
+  </form>
+</div>
+
+</html>

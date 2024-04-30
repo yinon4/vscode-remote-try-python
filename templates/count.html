@@ -1,0 +1,24 @@
+<div>
+  <button hx-get="/increment" hx-indicator="#spinner">
+    {{ count }}
+  </button>
+  <img id="spinner" class="htmx-indicator" src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" />
+</div>
+
+<style>
+  .htmx-indicator {
+    display: none;
+    opacity: 0;
+  }
+
+  #spinner {
+    height: 1em;
+    vertical-align: middle;
+
+  }
+
+  .htmx-request {
+    opacity: 1;
+    display: inline;
+  }
+</style>

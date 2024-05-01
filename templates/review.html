@@ -1,33 +1,25 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>{{movie.title}}</title>
-  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-</head>
+{% extends "index.html" %}
+{% block title %}{{movie.title}}{% endblock %}
 
 
-<div>
-  <h1>{{movie.title}}</h1>
-  <form>
-    <label for="rating">Rating:</label>
-    <input type="range" name="rating" id="rating" min="1" max="5" list="ratings" />
-    <datalist id="ratings">
-      <option value="1"></option>
-      <option value="2"></option>
-      <option value="3"></option>
-      <option value="4"></option>
-      <option value="5"></option>
-    </datalist>
+{% block content %}
+<form>
+  <label for="rating">Rating:</label>
+  <input type="range" name="rating" id="rating" min="1" max="5" list="ratings" />
+  <datalist id="ratings">
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+    <option value="4"></option>
+    <option value="5"></option>
+  </datalist>
 
-    <br />
-    <br />
-    <label for="review">Review:</label>
-    <textarea name="review" id="review"></textarea>
-    <br />
-    <br />
-    <button type="submit" hx-post="/movies/{{movie.url}}/review">Submit</button>
-  </form>
-</div>
-
-</html>
+  <br />
+  <br />
+  <label for="review">Review:</label>
+  <textarea name="review" id="review"></textarea>
+  <br />
+  <br />
+  <button type="submit" hx-post="/movies/{{movie.url}}/review">Submit</button>
+</form>
+{% endblock %}

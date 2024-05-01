@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>NO!</title>
+    <title>{% block title required %}{% endblock %}</title>
     <script src="https://unpkg.com/htmx.org@1.9.12"></script>
 </head>
 
 <body>
-    {% include 'count.html' %}
+    {% block content required %}{% endblock %}
 </body>
 
 </html>

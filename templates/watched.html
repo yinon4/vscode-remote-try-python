@@ -1,4 +1,8 @@
-<h1>WATCHED</h1>
+{% extends "index.html" %}
+{% block title %}WATCHED{% endblock %}
+
+
+{% block content %}
 <table>
   <tr>
     <th>Title</th>
@@ -20,6 +24,4 @@
   {% endfor %}
   {% endfor %}
 </table>
-<script>
-
-</script>
+{% endblock %}
